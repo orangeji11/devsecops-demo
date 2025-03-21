@@ -2,13 +2,13 @@
     "policies": [
         {
             "id": "c8fde2c3-980c-40e3-bc9d-6245b13ab81e",
-            "name": "Trusted_Signature_Image_Policy",
-            "description": "Alert on Images that have not been signed",
+            "name": "可信签名镜像策略",
+            "description": "未签名镜像警告",
             "rationale": "rationale",
-            "remediation": "All images should be signed by our cosign-demo signature",
+            "remediation": "所有镜像均应由我们的 cosign-demo 签名",
             "disabled": false,
             "categories": [
-                "Security Best Practices"
+                "安全最佳实践"
             ],
             "lifecycleStages": [
                 "BUILD",
