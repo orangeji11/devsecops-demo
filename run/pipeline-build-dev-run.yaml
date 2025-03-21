@@ -12,3 +12,6 @@ spec:
   - name: maven-settings
     configMap:
       name: maven-settings
+  podTemplate:
+    nodeSelector:
+      kubernetes.io/hostname: uccps-cluster5-6pfqs-worker-0-qt4hn

@@ -22,7 +22,7 @@ spec:
               fieldPath: metadata.namespace
     steps:
       - name: init-gogs
-        image: quay.io/siamaksade/python-oc
+        image: quay.io/orangeji11/python-oc:latest
         script: |
           #!/usr/bin/env python3
 
@@ -51,7 +51,7 @@ spec:
             print("Created admin user {}:{}".format(gogs_user, gogs_pwd))
 
           # create git repo spring-petclinic
-          data_repo = '{"clone_addr": "https://github.com/rcarrata/spring-petclinic", "uid": 1, "repo_name": "spring-petclinic"}'
+          data_repo = '{"clone_addr": "https://gitee.com/orangeji11/spring-petclinic", "uid": 1, "repo_name": "spring-petclinic"}'
           headers = {'Content-Type': 'application/json'}
           resp = requests.post(url = gogsURL + "/api/v1/repos/migrate", headers = headers, auth = (gogs_user, gogs_pwd), data = data_repo)
 
@@ -76,7 +76,7 @@ spec:
             print("Configured webhook: " + webhookURL)
 
           # create git repo spring-petclinic-config
-          data_repo = '{"clone_addr": "https://github.com/rcarrata/spring-petclinic-config.git", "uid": 1, "repo_name": "spring-petclinic-config"}'
+          data_repo = '{"clone_addr": "https://gitee.com/orangeji11/spring-petclinic-config.git", "uid": 1, "repo_name": "spring-petclinic-config"}'
           headers = {'Content-Type': 'application/json'}
           resp = requests.post(url = gogsURL + "/api/v1/repos/migrate", headers = headers, auth = (gogs_user, gogs_pwd), data = data_repo)
 

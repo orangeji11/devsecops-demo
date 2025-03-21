@@ -1,11 +1,11 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: openshift-gitops-operator
+  name: gitops-operator
   namespace: openshift-operators
 spec:
-  channel: latest
+  channel: stable
   installPlanApproval: Automatic
-  name: openshift-gitops-operator
-  source: redhat-operators
+  name: gitops-operator
+  source: uccps-operators
   sourceNamespace: openshift-marketplace

@@ -19,7 +19,7 @@ printf "http://$REPORTS"
 printf "\n"
 
 printf "\n## ACS/Stackrox Server - Username/Password: admin/stackrox ##\n"
-ACS=$(oc get route -n stackrox central -o jsonpath='{.spec.host}')
+ACS=$(oc get route -n acs-operator central -o jsonpath='{.spec.host}')
 printf "https://$ACS"
 printf "\n"
 

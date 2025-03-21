@@ -53,17 +53,11 @@ spec:
     - description: The workspace consisting of the custom maven settings provided by the user.
       name: maven-settings
   steps:
-    - image: 'registry.access.redhat.com/ubi8/ubi-minimal:latest'
+    - image: 'registry.uniontech.com/uccps/uos20:1.3.1'
       name: mvn-settings
       resources: {}
       script: >
         #!/usr/bin/env bash
-
-
-        [[ -f $(workspaces.maven-settings.path)/settings.xml ]] && \
-
-        echo 'using existing $(workspaces.maven-settings.path)/settings.xml' &&
-        exit 0
 
 
         cat > $(workspaces.maven-settings.path)/settings.xml <<EOF
@@ -124,13 +118,13 @@ spec:
         - -DskipTests=true
       command:
         - /usr/bin/mvn
-      image: gcr.io/cloud-builders/mvn
+      image: quay.io/orangeji11/mvn:3.5.0-jdk-8
       name: mvn-goals
       resources: {}
       workingDir: $(workspaces.source.path)
     - name: archive-site
       workingDir: $(workspaces.source.path)
-      image: registry.access.redhat.com/ubi8/ubi:latest
+      image: registry.uniontech.com/uccps/uos20:1.3.1
       env:
         - name: PIPELINERUN_NAME
           valueFrom:
